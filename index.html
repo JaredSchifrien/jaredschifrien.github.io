@@ -57,7 +57,7 @@
                         <a href="#Overview">Overview</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#Motivation">Motivation</a>
+                        <a href="#Data">Data</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#Solution">Solution</a>
@@ -92,7 +92,7 @@
     </header>
 
 
-    <section class="Overview" id="Overview">
+    <section id="Overview">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -101,7 +101,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
+                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to predict the most likely price bracket for a business with the given attributes.  This can then be used to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
                 </div>
 
 
@@ -114,24 +114,25 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="Motivation" id="Motivation">
+    <!-- Data Section -->
+    <section id="Data">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Motivation</h2>
+                    <h2>Data</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
+                    <p>Our data is acquired from the yelp dataset, available at the following address: <a href="https://www.yelp.com/dataset_challenge/dataset">Yelp Data Set</a></p>
+                    <p>There are about 77k businesses with 14 mandatory attributes and each can have up to zero to 10+ optional attributes in the “attributes” section.  We have explored different techniques of cleaning and separating the data such as only using ⅘+ ratings, only using businesses that have more than 20 reviews, and only using restaurants for more stable correlations between quality and price vs success</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="Solution" id="Solution">
+    <!-- Solution Section -->
+    <section id="Solution">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -147,8 +148,8 @@
     </section>
 
 
-<!-- About Section -->
-    <section class="Testing" id="Testing">
+<!-- Testing Section -->
+    <section id="Testing">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -164,8 +165,8 @@
     </section>
 
 
-<!-- About Section -->
-    <section class="Results" id="Results">
+<!-- Results Section -->
+    <section id="Results">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
