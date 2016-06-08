@@ -60,10 +60,10 @@
                         <a href="#Data">Data</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#Solution">Solution</a>
+                        <a href="#Testing">Testing/Training</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#Testing">Testing/Training</a>
+                        <a href="#Solution">Solution</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#Results">Results</a>
@@ -84,7 +84,7 @@
                         <span class="name">Northwestern University</span>
                         <span class="name">EECS 349 Machine Learning Project</span>
                         <hr class="star-light">
-                        <span class="skills">Chris Hartman - Michael Pauleen - Jared Schifrien</span>
+                        <span class="skills">Christopher Hartman - Michael Pauleen - Jared Schifrien</span>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-Left">
                     <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to predict the most likely price bracket for a business with the given attributes.  This can then be used to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
                 </div>
 
@@ -123,9 +123,101 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-Left">
                     <p>Our data is acquired from the yelp dataset, available at the following address: <a href="https://www.yelp.com/dataset_challenge/dataset">Yelp Data Set</a></p>
                     <p>There are about 77k businesses with 14 mandatory attributes and each can have up to zero to 10+ optional attributes in the “attributes” section.  We have explored different techniques of cleaning and separating the data such as only using ⅘+ ratings, only using businesses that have more than 20 reviews, and only using restaurants for more stable correlations between quality and price vs success</p>
+                    <p>We started by preprocessing the dataset to narrow the businesses down to only restaurants using R.  We then used the python library scikit-learn to vectorize the data and effectively create a booean feature for each word that could potentially be used in the “categories” description.<p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Testing">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Testing/Training</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-Left">
+                    <p>Unable to build a decision tree (J48) in a timely manner while training with the entirety of the data’s attributes (excluding categories of restuarants), we tried to reduce the number of predictors used. We used several of Weka’s attribute selection function to determine which features could provide the most information to our machine learning algorithms.</p>
+                    <p>Each algorithm included a different set of attributes but almost all of them included alcohol, attire, take out, takes reservations, and waiter service. Using only these features, our decision tree (J48) was able to achieve 74.68% accuracy in 10-fold cross validation. </p>
+                    <p>As can be seen in the table, most machine learning algorithms perform with negligible differences. This is likely because of the low dimensionality of the data and the relatively straightforward relationships between the features and the prices.</p>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <h4><br></br>Initial Results without Categorical Data</h4>
+                </div>
+                <table class="table table-hover">
+                  <tr>
+                    <th class="tg-031e">ML Algorithm</th>
+                    <th class="tg-031e">10-Fold Accuracy</th>
+                    <th class="tg-031e">Weighted F-Measure</th>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">J48</td>
+                    <td class="tg-031e">74.68%</td>
+                    <td class="tg-031e">.736</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">NaiveBayes</td>
+                    <td class="tg-031e">73.66%</td>
+                    <td class="tg-031e">.733</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">BayesNet</td>
+                    <td class="tg-031e">73.68%</td>
+                    <td class="tg-031e">.734</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">Ibk</td>
+                    <td class="tg-031e">74.64%</td>
+                    <td class="tg-031e">.736</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-yw4l">OneR</td>
+                    <td class="tg-yw4l">69.77%</td>
+                    <td class="tg-yw4l">.671</td>
+                  </tr>
+                </table>
+                <div class="col-lg-12 text-Left">
+                    <p>Incorporating the restuarant category data (terms such as: “sushi”, “seafood”, “mexican”, “fast”, and “dogs”), we used the BestFirst+CfsSubsetEval attribute selection algorithm to determine the best attributes for our machine learning techniques. Comparing the two tables, there is an increase across all algorithms in both 10-fold accuracy and weighted F-measure, indicating that using the categories data has some value.</p>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <h4><br></br>Initial Results with Categorical Data</h4>
+                </div>
+                <table class="table table-hover">
+                  <tr>
+                    <th class="tg-031e">ML Algorithm</th>
+                    <th class="tg-031e">10-Fold Accuracy</th>
+                    <th class="tg-031e">Weighted F-Measure</th>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">J48</td>
+                    <td class="tg-031e">75.16%</td>
+                    <td class="tg-031e">.742</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">NaiveBayes</td>
+                    <td class="tg-031e">74.26%</td>
+                    <td class="tg-031e">.739</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">BayesNet</td>
+                    <td class="tg-031e">74.27%</td>
+                    <td class="tg-031e">.739</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-031e">Ibk</td>
+                    <td class="tg-031e">74.84%</td>
+                    <td class="tg-031e">.739</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-yw4l">OneR</td>
+                    <td class="tg-yw4l">69.77%</td>
+                    <td class="tg-yw4l">.671</td>
+                  </tr>
+                </table>
                 </div>
             </div>
         </div>
@@ -140,30 +232,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
+                <div class="col-lg-12 text-Left">
+                    <p>The most successful tree was a J48graft tree using the following command: J48graft -C 0.22 -M 1 -E. This tree has a 10-fold accuracy of 75.23 and a F-Measure of .742. That tree is available <a href="https://www.dropbox.com/s/2a2p056o0p1q350/yelptree.model?dl=0">Here</a>. After experimenting with trees, we also experimented using different bayes algorithms, the most successful of which was WAODE, which had 75.22% accuracy and a F-Measure of .744. That model is available <a href="https://www.dropbox.com/s/6fdxsmkueihx5jn/yelpbayes.model?dl=0">Here</a>.</p>
                 </div>
             </div>
         </div>
     </section>
-
-
-<!-- Testing Section -->
-    <section id="Testing">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Testing/Training</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
 <!-- Results Section -->
     <section id="Results">
@@ -174,7 +248,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-Left">
                     <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
                 </div>
             </div>
@@ -187,29 +261,9 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-6">
-                        <h3>Location</h3>
-                        <p>Room 0211<br>2303 Sheridan Road<br> Evanston, IL 60201</p>
-                    </div>
-                    <div class="footer-col col-md-6">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
+                    <div class="footer-col col-md">
+                        <h3>Contact</h3>
+                        <p><a href="mailto:ChristopherHartman2018@u.northwestern.edu">Christopher Hartman</a></p><p><a href="mailto:MichaelPauleen2018@u.northwestern.edu">Michael Pauleen</a></p><p><a href="mailto:JaredSchifrien2018@u.northwestern.edu">Jared Schifrien</a></p>
                     </div>
                 </div>
             </div>
