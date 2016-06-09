@@ -101,13 +101,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-Left">
-                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to predict the most likely price bracket for a business with the given attributes.  This can then be used to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
+                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suit their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to predict the most likely price bracket for a business with the given attributes.  This can then be used to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
                 </div>
 
 
                 <div class="col-lg-12 text-center">
 
-                    <a class="btn btn-primary btn-lg" href="sample_pdf.pdf"><i class="fa fa-download"></i>Download Full Report</a>
+                    <a class="btn btn-primary btn-lg" href="Yelp Price Predictor Final Report.pdf"><i class="fa fa-download"></i>Download Full Report</a>
 
                 </div>
             </div>
@@ -233,7 +233,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-Left">
-                    <p>The most successful tree was a J48graft tree using the following command: J48graft -C 0.22 -M 1 -E. This tree has a 10-fold accuracy of 75.23 and a F-Measure of .742. That tree is available <a href="https://www.dropbox.com/s/2a2p056o0p1q350/yelptree.model?dl=0">Here</a>. After experimenting with trees, we also experimented using different bayes algorithms, the most successful of which was WAODE, which had 75.22% accuracy and a F-Measure of .744. That model is available <a href="https://www.dropbox.com/s/6fdxsmkueihx5jn/yelpbayes.model?dl=0">Here</a>.</p>
+                    <p>The most successful tree was a J48graft tree using the following command: J48graft -C 0.22 -M 1 -E. This tree has a 10-fold accuracy of 75.23 and a F-Measure of .742. That tree is available <a href="https://www.dropbox.com/s/2a2p056o0p1q350/yelptree.model?dl=0">Here</a>, and the Weka results buffer is available <a href="https://www.dropbox.com/s/rbzm8sdfswug43a/treelog?dl=0">Here</a>. After experimenting with trees, we also experimented using different bayes algorithms, the most successful of which was WAODE, which had 75.22% accuracy and a F-Measure of .744. That model is available <a href="https://www.dropbox.com/s/6fdxsmkueihx5jn/yelpbayes.model?dl=0">Here</a>.</p>
                 </div>
             </div>
         </div>
@@ -249,7 +249,8 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-Left">
-                    <p>Yelp is a business review website that allows any person to offer anonymous reviews, tips and images to help other consumers choose which businesses to patronize.  While Yelp allows for an easy interface for consumers to choose which business will best suite their needs, it does not offer tools to help businesses utilize this data to help themselves.  To fix this we created a model to determine the ideal pricing for a business based on its city, business type and other attributes found in the yelp dataset so that they can benefit from Yelp as well.</p>
+                    <p>The features consistently selected by Weka’s subset evaluation all have intuitive theory that supports their usefulness for predicting restaurant price category. It makes sense that restaurants that offer alcohol, waiter service, and require classy or formal dress will tend to be more expensive than those that don’t. </p>
+                    <p>Adding category data only results in marginal improvements because the most powerful predictive categories (e.g. “sushi”, “seafood”, “fast”) tend to have attributes already in the model and categorical data for each feature only applies to a relatively small subset of our data, but including enough features to hit a lot of the data leads to too many dimensions.</p>
                 </div>
             </div>
         </div>
